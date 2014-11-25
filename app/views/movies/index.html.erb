@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>All Movies</h2>
+<table>
+  <thead>
+  <tr>
+    <td>  Movie Title     </td>
+    <td>  Rating </td>
+    <td>  Release Date </td>
+    <td>  More Info </td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @movies.each do |movie| %>
+      <tr>
+        <td>  <%= movie.title %>   </td>
+        <td>  <%= movie.rating %>  </td>
+        <td>  <%= movie.release_date %> </td>
+        <td>  More about <a href= "movies/<%= movie.id %>">
+          <%= movie.title %></a>  </td>
+      </tr>
+  <%end%>
+  </tbody>
+</table>
+
+<p><a href="movies/new"> Add a new Movie </a></p>
+<p><a href="movies/search"> Search a Movie </a></p>
+</body>
+</html>

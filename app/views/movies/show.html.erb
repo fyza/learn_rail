@@ -1,0 +1,19 @@
+<h2>Details about <%= @movie.title %> </h2>
+<ul> details
+  <li> Rating: <%= @movie.rating %> </li>
+  <li> Released on: <%= @movie.release_date.strftime("%B %d, %Y")%></li>
+</ul>
+
+<h3> Description: </h3>
+<p> description <%= @movie.description %>  </p>
+
+<h3>Comments (<%= @movie.comments.size %>)</h3>
+<%= render partial: 'movies/comment', collection: @movie.comments %>
+<%= render partial: 'comments/form' %>
+
+<a href="<%= movies_path %>">Back to movie list</a>
+
+
+<%= link_to 'Edit info', edit_movie_path(@movie) %>
+<% # This Delete link will not really be a link, but a form: %>
+<%= link_to 'Delete', movie_path(@movie), :method => :delete %>
